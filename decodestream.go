@@ -56,8 +56,9 @@ func (s Stream) Start(r io.Reader) {
 				return
 			}
 			//send the data to the channel
-			s.stream <- Entry{Data: data}
-			i++
+			s.stream <- Entry{Data: data}	
 		}
+		
+		i++
 	}
 }
