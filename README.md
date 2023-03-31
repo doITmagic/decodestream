@@ -43,3 +43,9 @@ To get test coverage use
 ```bash
  ginkgo -coverpkg=./... -r
 ```
+
+Run example
+```bash
+cd example
+go run .
+```
