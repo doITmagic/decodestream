@@ -1,0 +1,216 @@
+[
+  {
+    "SuitePath": "/home/razvan/go/src/github.com/doITmagic/decodestream",
+    "SuiteDescription": "Decodestream Suite",
+    "SuiteLabels": [],
+    "SuiteSucceeded": true,
+    "SuiteHasProgrammaticFocus": false,
+    "SpecialSuiteFailureReasons": null,
+    "PreRunStats": {
+      "TotalSpecs": 3,
+      "SpecsThatWillRun": 3
+    },
+    "StartTime": "2023-03-31T22:04:35.970864292+03:00",
+    "EndTime": "2023-03-31T22:04:35.971335644+03:00",
+    "RunTime": 471355,
+    "SuiteConfig": {
+      "RandomSeed": 1680289475,
+      "RandomizeAllSpecs": false,
+      "FocusStrings": null,
+      "SkipStrings": null,
+      "FocusFiles": null,
+      "SkipFiles": null,
+      "LabelFilter": "",
+      "FailOnPending": false,
+      "FailFast": false,
+      "FlakeAttempts": 0,
+      "DryRun": false,
+      "PollProgressAfter": 0,
+      "PollProgressInterval": 0,
+      "Timeout": 3599369274228,
+      "EmitSpecProgress": false,
+      "OutputInterceptorMode": "",
+      "SourceRoots": null,
+      "GracePeriod": 30000000000,
+      "ParallelProcess": 1,
+      "ParallelTotal": 1,
+      "ParallelHost": ""
+    },
+    "SpecReports": [
+      {
+        "ContainerHierarchyTexts": [
+          "Decodestream"
+        ],
+        "ContainerHierarchyLocations": [
+          {
+            "FileName": "/home/razvan/go/src/github.com/doITmagic/decodestream/decodestream_test.go",
+            "LineNumber": 51
+          }
+        ],
+        "ContainerHierarchyLabels": [
+          []
+        ],
+        "LeafNodeType": "It",
+        "LeafNodeLocation": {
+          "FileName": "/home/razvan/go/src/github.com/doITmagic/decodestream/decodestream_test.go",
+          "LineNumber": 55
+        },
+        "LeafNodeLabels": [],
+        "LeafNodeText": "NewJSONStream",
+        "State": "passed",
+        "StartTime": "2023-03-31T22:04:35.971022492+03:00",
+        "EndTime": "2023-03-31T22:04:35.971163135+03:00",
+        "RunTime": 140627,
+        "ParallelProcess": 1,
+        "NumAttempts": 1,
+        "MaxFlakeAttempts": 0,
+        "MaxMustPassRepeatedly": 0,
+        "SpecEvents": [
+          {
+            "SpecEventType": "Node",
+            "CodeLocation": {
+              "FileName": "/home/razvan/go/src/github.com/doITmagic/decodestream/decodestream_test.go",
+              "LineNumber": 55
+            },
+            "TimelineLocation": {
+              "Order": 1,
+              "Time": "2023-03-31T22:04:35.971051469+03:00"
+            },
+            "Message": "NewJSONStream",
+            "NodeType": "It"
+          },
+          {
+            "SpecEventType": "Node (End)",
+            "CodeLocation": {
+              "FileName": "/home/razvan/go/src/github.com/doITmagic/decodestream/decodestream_test.go",
+              "LineNumber": 55
+            },
+            "TimelineLocation": {
+              "Order": 3,
+              "Time": "2023-03-31T22:04:35.971159796+03:00"
+            },
+            "Message": "NewJSONStream",
+            "Duration": 108323,
+            "NodeType": "It"
+          }
+        ]
+      },
+      {
+        "ContainerHierarchyTexts": [
+          "Decodestream"
+        ],
+        "ContainerHierarchyLocations": [
+          {
+            "FileName": "/home/razvan/go/src/github.com/doITmagic/decodestream/decodestream_test.go",
+            "LineNumber": 51
+          }
+        ],
+        "ContainerHierarchyLabels": [
+          []
+        ],
+        "LeafNodeType": "It",
+        "LeafNodeLocation": {
+          "FileName": "/home/razvan/go/src/github.com/doITmagic/decodestream/decodestream_test.go",
+          "LineNumber": 59
+        },
+        "LeafNodeLabels": [],
+        "LeafNodeText": "can return a wait channel",
+        "State": "passed",
+        "StartTime": "2023-03-31T22:04:35.971188141+03:00",
+        "EndTime": "2023-03-31T22:04:35.971202775+03:00",
+        "RunTime": 14635,
+        "ParallelProcess": 1,
+        "NumAttempts": 1,
+        "MaxFlakeAttempts": 0,
+        "MaxMustPassRepeatedly": 0,
+        "SpecEvents": [
+          {
+            "SpecEventType": "Node",
+            "CodeLocation": {
+              "FileName": "/home/razvan/go/src/github.com/doITmagic/decodestream/decodestream_test.go",
+              "LineNumber": 59
+            },
+            "TimelineLocation": {
+              "Order": 4,
+              "Time": "2023-03-31T22:04:35.971189616+03:00"
+            },
+            "Message": "can return a wait channel",
+            "NodeType": "It"
+          },
+          {
+            "SpecEventType": "Node (End)",
+            "CodeLocation": {
+              "FileName": "/home/razvan/go/src/github.com/doITmagic/decodestream/decodestream_test.go",
+              "LineNumber": 59
+            },
+            "TimelineLocation": {
+              "Order": 6,
+              "Time": "2023-03-31T22:04:35.971201292+03:00"
+            },
+            "Message": "can return a wait channel",
+            "Duration": 11677,
+            "NodeType": "It"
+          }
+        ]
+      },
+      {
+        "ContainerHierarchyTexts": [
+          "Decodestream"
+        ],
+        "ContainerHierarchyLocations": [
+          {
+            "FileName": "/home/razvan/go/src/github.com/doITmagic/decodestream/decodestream_test.go",
+            "LineNumber": 51
+          }
+        ],
+        "ContainerHierarchyLabels": [
+          []
+        ],
+        "LeafNodeType": "It",
+        "LeafNodeLocation": {
+          "FileName": "/home/razvan/go/src/github.com/doITmagic/decodestream/decodestream_test.go",
+          "LineNumber": 63
+        },
+        "LeafNodeLabels": [],
+        "LeafNodeText": "can start and return to wait channel",
+        "State": "passed",
+        "StartTime": "2023-03-31T22:04:35.971212067+03:00",
+        "EndTime": "2023-03-31T22:04:35.971321365+03:00",
+        "RunTime": 109300,
+        "ParallelProcess": 1,
+        "NumAttempts": 1,
+        "MaxFlakeAttempts": 0,
+        "MaxMustPassRepeatedly": 0,
+        "SpecEvents": [
+          {
+            "SpecEventType": "Node",
+            "CodeLocation": {
+              "FileName": "/home/razvan/go/src/github.com/doITmagic/decodestream/decodestream_test.go",
+              "LineNumber": 63
+            },
+            "TimelineLocation": {
+              "Order": 7,
+              "Time": "2023-03-31T22:04:35.971213198+03:00"
+            },
+            "Message": "can start and return to wait channel",
+            "NodeType": "It"
+          },
+          {
+            "SpecEventType": "Node (End)",
+            "CodeLocation": {
+              "FileName": "/home/razvan/go/src/github.com/doITmagic/decodestream/decodestream_test.go",
+              "LineNumber": 63
+            },
+            "TimelineLocation": {
+              "Order": 9,
+              "Time": "2023-03-31T22:04:35.971319694+03:00"
+            },
+            "Message": "can start and return to wait channel",
+            "Duration": 106498,
+            "NodeType": "It"
+          }
+        ]
+      }
+    ]
+  }
+]

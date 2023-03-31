@@ -34,3 +34,12 @@ func main() {
 }
 
 ```
+To run test use 
+```bash
+go test -v
+```
+
+To get test coverage use
+```bash
+ ginkgo -coverpkg=./... -r
+```

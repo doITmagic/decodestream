@@ -33,12 +33,10 @@ func (s Stream) Watch() <-chan Entry {
 // will be closed.
 func (s Stream) Start(r io.Reader) {
 
-	defer func() {
-		// close the stream channel
-		close(s.stream)
-	}()
+	// close the stream channel
+	defer close(s.stream)
 
-	// Decode JSON file
+	// Decode JSON reader
 	decoder := json.NewDecoder(r)
 	i := 1
 	for decoder.More() {

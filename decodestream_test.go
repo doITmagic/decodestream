@@ -1,70 +1,93 @@
-package decodestream
+package decodestream_test
 
 import (
-	"io"
-	"reflect"
-	"testing"
+	"strings"
+	"sync"
+
+	"github.com/doITmagic/decodestream"
+	gi "github.com/onsi/ginkgo/v2"
+	gom "github.com/onsi/gomega"
 )
 
-func TestNewJSONStream(t *testing.T) {
-	tests := []struct {
-		name string
-		want Stream
-	}{
-		// TODO: Add test cases.
-	}
-	for _, tt := range tests {
-		t.Run(tt.name, func(t *testing.T) {
-			if got := NewJSONStream(); !reflect.DeepEqual(got, tt.want) {
-				t.Errorf("NewJSONStream() = %v, want %v", got, tt.want)
-			}
-		})
-	}
+var jsonString = `
+{
+  "AEAJM": {
+    "name": "Ajman",
+    "city": "Ajman",
+    "country": "United Arab Emirates",
+    "alias": [],
+    "regions": [],
+    "coordinates": [
+      55.5136433,
+      25.4052165
+    ],
+    "province": "Ajman",
+    "timezone": "Asia/Dubai",
+    "unlocs": [
+      "AEAJM"
+    ],
+    "code": "52000"
+  },
+  "AEAUH": {
+    "name": "Abu Dhabi",
+    "coordinates": [
+      54.37,
+      24.47
+    ],
+    "city": "Abu Dhabi",
+    "province": "Abu Z¸aby [Abu Dhabi]",
+    "country": "United Arab Emirates",
+    "alias": [],
+    "regions": [],
+    "timezone": "Asia/Dubai",
+    "unlocs": [
+      "AEAUH"
+    ],
+    "code": "52001"
+  }
 }
+`
 
-func TestStream_Start(t *testing.T) {
-	type fields struct {
-		stream chan Entry
-	}
-	type args struct {
-		r io.Reader
-	}
-	tests := []struct {
-		name   string
-		fields fields
-		args   args
-	}{
-		// TODO: Add test cases.
-	}
-	for _, tt := range tests {
-		t.Run(tt.name, func(t *testing.T) {
-			s := Stream{
-				stream: tt.fields.stream,
-			}
-			s.Start(tt.args.r)
-		})
-	}
-}
+var _ = gi.Describe("Decodestream", func() {
 
-func TestStream_Watch(t *testing.T) {
-	type fields struct {
-		stream chan Entry
-	}
-	tests := []struct {
-		name   string
-		fields fields
-		want   <-chan Entry
-	}{
-		// TODO: Add test cases.
-	}
-	for _, tt := range tests {
-		t.Run(tt.name, func(t *testing.T) {
-			s := Stream{
-				stream: tt.fields.stream,
+	stream := decodestream.NewJSONStream()
+
+	gi.It("NewJSONStream", func() {
+		gom.Expect(stream).NotTo(gom.BeNil())
+	})
+
+	gi.It("can return a wait channel", func() {
+		gom.Expect(stream.Watch()).To(gom.BeAssignableToTypeOf(make(<-chan decodestream.Entry)))
+	})
+
+	gi.It("can start and return to wait channel", func() {
+		results := make(map[int]interface{})
+		var mx sync.Mutex
+		go func() {
+			defer gi.GinkgoRecover()
+			i := 0
+			for data := range stream.Watch() {
+				if data.Error != nil {
+					gom.Expect(data.Error).NotTo(gom.HaveOccurred())
+				}
+				mx.Lock()
+				results[i] = data.Data
+				mx.Unlock()
 			}
-			if got := s.Watch(); !reflect.DeepEqual(got, tt.want) {
-				t.Errorf("Watch() = %v, want %v", got, tt.want)
-			}
-		})
-	}
-}
+		}()
+		stream.Start(strings.NewReader(jsonString))
+		_, closed := <-stream.Watch()
+		if closed {
+			gi.It("can receive 2 json objects", func() {
+				gom.Expect(results).To(gom.HaveLen(2))
+			})
+			gi.It("first object has correct name", func() {
+				gom.Expect(results[0]).To(gom.HaveKeyWithValue("AEAJM", gom.HaveKeyWithValue("name", "Ajman")))
+			})
+			gi.It("second object has correct name", func() {
+				gom.Expect(results[1]).To(gom.HaveKeyWithValue("AEAJM", gom.HaveKeyWithValue("name", "Ajman")))
+			})
+		}
+	})
+
+})
